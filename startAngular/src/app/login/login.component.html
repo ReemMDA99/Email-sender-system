@@ -1,0 +1,39 @@
+<h1>Email Sender System</h1>
+<!-- create form -->
+<form style="width: 50%; margin: auto">
+  <mat-card>
+    <h1>Material Form</h1>
+    <!-- create form field -->
+    <mat-form-field style="width: 100%">
+      <input matInput placeholder="Name" [formControl]="nameFormControl" />
+      <!-- Name must be at least 4 characters long. -->
+      <mat-error *ngIf="nameFormControl.hasError('minlength')">
+        Name must be at least 4 characters long.
+      </mat-error>
+      <!-- If name is not entered or left blank -->
+      <mat-error *ngIf="nameFormControl.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <!-- if invalid email address is entered -->
+    <mat-form-field style="width: 100%">
+      <input matInput placeholder="Email" [formControl]="emailFormControl"/>
+      <mat-error *ngIf="emailFormControl.hasError('email')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <!-- create submit button to register the user using form -->
+    <button
+      mat-raised-button
+      [disabled]="emailFormControl.invalid || nameFormControl.invalid || loading"
+      color="primary"
+      (click)="register()"
+    >
+      {{buttonText}}
+    </button>
+  </mat-card>
+</form>
+<!-- <button [routerLink]="['/profile', 12367]">Go to Profile</button> -->
