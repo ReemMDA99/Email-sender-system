@@ -6,8 +6,9 @@ const nodemailer = require("nodemailer");
 
 // set up express routes to get and post request
 const app = express();
-// use cors as to access request allow origin to access frontend request
+//Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins 
 app.use(cors({ origin: "*" }));
+// to parse the request and send the response to the client
 app.use(bodyParser.json());
 
 //the app is listening on port number 3000
@@ -18,11 +19,11 @@ app.listen(3000, () => {
 // Get the user data
 app.get("/", (req, res) => {
     res.send(
-      "<h1 style='text-align: center'>Email Sender System by Reem</h1>"
+      "<h1 style='text-align: center'>Welcome to the Email Sender System by Reem</h1>"
     );
 });
 
-// add/send email
+// post/send email using user info
 app.post("/sendmail", (req, res) => {
     console.log("Request received!");
     let user = req.body;
@@ -41,16 +42,16 @@ async function sendMail(user, callback) {
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
-        user: 'reem.mda0909@gmail.com',
-        pass: 'ezblklrakneldrzd'
+        user: 'emailsendersystem2022@gmail.com', // generate gmail user
+        pass: 'pgpxcdpozvsycbny' // generate user password
       }
     });
-  
+  // send mail with defined transport object
     let mailOptions = {
-      from: '"Email sent from Reem Ahmed"<reem.mda0909@gmail.com>', // sender address
+      from: '"Email sent from Reem Ahmed"<emailsendersystem2022@gmail.com>', // sender address
       to: 'india.canada96@yahoo.com', // list of receivers
       subject: "This is a test email to confirm my app functionality 👻", // Subject line
-      html: `<h1>Hi ${user.name}</h1><br>
+      html: `<h1>Hi ${user.name}</h1><br> 
       <h4>This is an Email Sender Application created by Reem, using technologies Node and Express for the Backend, 
       Nodemailer for sending email, MySQL database and Angular for frontend </h4>`
     };
@@ -59,6 +60,9 @@ async function sendMail(user, callback) {
     let info = await transporter.sendMail(mailOptions);
   
     callback(info);
+  //   // Preview only available when sending through an Ethereal account
+  // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  // // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 
 // main().catch(console.error);
