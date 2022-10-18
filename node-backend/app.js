@@ -35,7 +35,7 @@ app.post("/sendmail", (req, res) => {
 // set up nodemailer to create email sending functionality
 
 async function sendMail(user, callback) {
-    // create reusable transporter object using the default SMTP transport
+  // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
