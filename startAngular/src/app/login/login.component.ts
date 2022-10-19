@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
       data => {
         let res:any = data; 
         console.log(
-          `Viola! ${user.name} is successfully register 👏 and mail has been sent and the message id is ${res.messageId}`
+          `Voila! ${user.name} is successfully register 👏 and mail has been sent and the message id is ${res.messageId}`
         );
       },
        // add error handling functionality
