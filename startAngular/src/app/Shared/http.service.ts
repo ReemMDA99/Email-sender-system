@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root"
 })
 export class HttpService {
-  test = "Hello! This is a http test message to the client from http service?";
+  test = "Hello! This is a http test message to the client from http service.";
   constructor(private http: HttpClient) {}
 
   httpGet(url) {

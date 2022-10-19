@@ -39,12 +39,12 @@ export class ProfileComponent implements OnInit {
 
     const arr = [1, 2, 3, 4, 5, 5, 6];
     const obj = {
-      name: 'Reem',
-      from: 'Toronto'
+      name: 'Subrat',
+      from: 'Bangalore'
     };
-    let stringArray = ['hi', 'i', 'am', 'Reem'];
+    let stringArray = ['hi', 'i', 'am', 'Biku'];
 
-    let obs = of(23, arr, obj, 'Reem', stringArray, {});
+    let obs = of(23, arr, obj, 'Subart', stringArray, {});
 
     // obs.subscribe(
     //   data => console.log(data)
