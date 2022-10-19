@@ -27,3 +27,7 @@ Using AngularJs,MySQL, NodeJs and REST api create a webpage that will store a us
 ## Repository 🗝️
 
 https://github.com/ReemMDA99/Email-sender-system
+
+## link to a video demonstrating the app:
+
+https://drive.google.com/file/d/1F0n32xxVgNdhyi4AJmHDbhgw8ETrWZuX/view
